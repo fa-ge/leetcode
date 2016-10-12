@@ -4,35 +4,20 @@
  */
 var lengthOfLongestSubstring = function(s) {
     const sArr = s.split('')
-
     let left = 0
-    let right = 1
-    const len = sArr.length
+    let maxLen = 0
+    const hash = {}
 
-    if (len <= 1) {
-        return s
-    }
-
-    let hash = {
-        [sArr[0]]: 0
-    }
-    let maxLenLeft =0
-    let maxLenRight = 0
-    while (right < len) {
-        if (hash[sArr[right]] !== undefined) {
-            if ((right - left) > (maxLenRight - maxLenLeft)) {
-                maxLenLeft = left
-                maxLenRight = right - 1
-            }
-            left = hash[sArr[right]] + 1
-            hash = {
-                [sArr[left]]: left
-            }
+    for (let right = 0, len = sArr.length, tmpHashVal; right < len; right++) {
+        tmpHashVal = hash[sArr[right]]
+        if (tmpHashVal === undefined || tmpHashVal < left) {
+            maxLen = Math.max(maxLen, right - left + 1)
+        } else {
+            left = tmpHashVal + 1
         }
         hash[sArr[right]] = right
-        right++
     }
-    return s.substring(maxLenLeft, maxLenRight + 1)
+    return maxLen
 };
 
-console.log(lengthOfLongestSubstring('abcabcbb'))
+console.log(lengthOfLongestSubstring('abbca'))
