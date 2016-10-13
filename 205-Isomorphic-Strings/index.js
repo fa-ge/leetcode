@@ -6,16 +6,14 @@
 var isIsomorphic = function(s, t) {
     const hashS = {}
     const hashT = {}
-    const sArr = s.split('')
-    const tArr = t.split('')
 
-    for (let i = 0, len = sArr.length; i < len; i++) {
-        if (hashS[sArr[i]] !== hashT[tArr[i]]) {
+    for (let i = 0, len = s.length; i < len; i++) {
+        if (hashS[s[i]] !== hashT[t[i]]) {
             return false
         }
 
-        hashS[sArr[i]] = i
-        hashT[tArr[i]] = i
+        hashS[s[i]] = i
+        hashT[t[i]] = i
     }
     return true
 };
