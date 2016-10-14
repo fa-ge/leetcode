@@ -15,11 +15,8 @@ var twoSum = function(nums, target) {
     let right = len - 1
     let tar = numsBak[left] + numsBak[right]
 
-    while (tar !== target) {
+    while (tar !== target || left >= right) {
         tar > target ? right-- : left++
-        if (left >= right) {
-            break
-        }
         tar = numsBak[left] + numsBak[right]
     }
 
