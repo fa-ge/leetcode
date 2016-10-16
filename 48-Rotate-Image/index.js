@@ -3,19 +3,15 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 //  var rotate = function(matrix) {
-//     const length = matrix.length
-//     const res = []
-//     for (let n = 0; n < length; n++) {
-//         res[n] = []
-//         for (let m = length - 1; m >= 0; m--) {
-//             res[n].push(matrix[m][n])
-//         }
-//     }
-//     for (let n = 0; n < length; n++) {
+//         const length = matrix.length
+//         const arr = []
+//         const len = length - 1
 //         for (let m = 0; m < length; m++) {
-//             matrix[n][m] = res[n][m]
+//             arr[m] = []
+//             for (let n = 0; n < length; n++) {
+//                 arr[m][n] = matrix[len-n][m]
+//             }
 //         }
-//     }
 // };
 var rotate = function(matrix) {
     const length = matrix.length
@@ -35,6 +31,6 @@ var rotate = function(matrix) {
     }
 };
 
-var data = [[1,2,5],[3,4,7],[2,6,5]]
+var data = [[1,3,6],[7,9,5],[8,4,2]]
 rotate(data)
 console.log(data)
