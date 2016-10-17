@@ -1,22 +1,20 @@
-### 7\. Reverse Integer
+### 73\. Set Matrix Zeroes
 
-Reverse digits of an integer.
+Given a *m* x *n* matrix, if an element is 0, set its entire row and column to 0\. Do it in place.
 
-Example1: x = 123, return 321
-Example2: x = -123, return -321
 
-Have you thought about this?
+Follow up:
 
-Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
-
-If the integer's last digit is 0, what should the output be? ie, cases such as 10, 100.
-
-Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?
-
-For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+Did you use extra space?
+A straight forward solution using O(*m**n*) space is probably a bad idea.
+A simple improvement uses O(*m* + *n*) space, but still not the best solution.
+Could you devise a constant space solution?
 
 ### 方法（一）
-一个再普通不过的方法，循环x除以10取整，知道x等于0。就是对看代码index.js，但是写出来效率只打败了16.61%的
+1. 先确定第一行和第一列是否需要清零
+2. 扫描剩下的矩阵元素，如果遇到了0，就将对应的第一行和第一列上的元素赋值为0
+3. 根据第一行和第一列的信息，已经可以讲剩下的矩阵元素赋值为结果所需的值了
+4. 根据1中确定的状态，处理第一行和第一列。
 
 ### 方法（二）
-这个方法是把数字转成字符串，然后再把字符串数组，反转数组再转成字符串。打败了72.9%.代码见index2.js
+这个方法比较有趣，应该是js的专利。js中0和-0是有区别的，虽然0 === -0但是1/0=Infinity，而1/-0=-Infinity,根据这个区别，我们只要把等于0的那一行列都赋值成-0就可以了。相当简单见代码index2.js
