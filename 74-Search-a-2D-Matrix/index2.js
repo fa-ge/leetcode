@@ -4,52 +4,47 @@
  * @return {boolean}
  */
 
-function bSearchRange(arr, low, high, target) {
-    if (low > high) {
-        return low === 0 ? low : high
-    }
-
-    let mid = Math.floor((low + high) / 2)
-
-    if (target > arr[mid]) {
-        if (target < arr[mid + 1]) {
+function bSearchRange(arr, target) {
+    let low = 0
+    let high = arr.length - 1
+    let mid
+    while (low <= high) {
+        mid = Math.floor((low + high) / 2)
+        if (target > arr[mid]) {
+            low = mid + 1
+        } else if (target < arr[mid]) {
+            high = mid - 1
+        } else {
             return mid
-        } else {
-            return bSearchRange(arr, mid + 1, high, target)
-        }
-    } else if (target < arr[mid]) {
-        if (target > arr[mid - 1]) {
-            return mid - 1
-        } else {
-            return bSearchRange(arr, 0, mid -1, target)
         }
     }
-    return mid
+    return low - 1
 }
 
-function bSearch(arr, low, high, target) {
-    if (low > high) {
-        return false
+function bSearch(arr, target) {
+    let low = 0
+    let high = arr.length - 1
+    let mid
+    while (low <= high) {
+        mid = Math.floor((low + high) / 2)
+        if (target > arr[mid]) {
+            low = mid + 1
+        } else if (target < arr[mid]) {
+            high = mid - 1
+        } else {
+            return true
+        }
     }
-
-    let mid = Math.floor((low + high) / 2)
-
-    if (arr[mid] < target) {
-        return  bSearch(arr, mid + 1, high, target)
-    } else if (arr[mid] > target) {
-        return  bSearch(arr, 0, mid - 1, target)
-    }
-    return true
+    return false
 }
 
 var searchMatrix = function(matrix, target) {
     const firstColArr = matrix.map(val => val[0])
-    const row = bSearchRange(firstColArr, 0, firstColArr.length - 1, target)
-    return bSearch(matrix[row], 0, matrix[row].length - 1, target)
+    const row = bSearchRange(firstColArr, target)
+    if (row === -1) {
+        return false
+    }
+    return bSearch(matrix[row], target)
 };
 
-console.log(searchMatrix([
-    [1,   3,  5,  7],
-    [10, 11, 16, 20],
-    [23, 30, 34, 50]
-], 16))
+console.log(searchMatrix([[1]],0))
