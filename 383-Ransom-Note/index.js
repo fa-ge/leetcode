@@ -5,16 +5,16 @@
  */
 var canConstruct = function(ransomNote, magazine) {
     const hash = {}
-    for (let i = 0; i < magazine.length; i++) {
-        if (hash[magazine[i]]) {
-            hash[magazine[i]]++
+    for (let mag of magazine) {
+        if (hash[mag]) {
+            hash[mag]++
         } else {
-            hash[magazine[i]] = 1
+            hash[mag] = 1
         }
     }
-    for (let i = 0; i < ransomNote.length; i++) {
-        if (hash[ransomNote[i]]) {
-            hash[ransomNote[i]]--
+    for (let ran of ransomNote) {
+        if (hash[ran]) {
+            hash[ran]--
         } else {
             return false
         }

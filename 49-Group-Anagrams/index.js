@@ -5,13 +5,14 @@
 var groupAnagrams = function(strs) {
     const res = []
     const hash = {}
-    for (let i = 0, len = strs.length, key; i < len; i++) {
-        key = strs[i].split('').sort().join()
+    let key
+    for (let str of strs) {
+        key = str.split('').sort().join()
         if (hash[key] === undefined) {
             hash[key] = res.length
-            res.push([strs[i]])
+            res.push([str])
         } else {
-            res[hash[key]].push(strs[i])
+            res[hash[key]].push(str)
         }
     }
     return res

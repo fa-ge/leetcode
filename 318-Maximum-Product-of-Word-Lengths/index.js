@@ -5,8 +5,8 @@
 var maxProduct = function(words) {
     const bitArr = words.map((value) => {
         let bit = 0
-        for (let i = 0, len = value.length; i < len; i++) {
-            bit |= 1 << (value[i].codePointAt() - 97)
+        for (let val of value) {
+            bit |= 1 << (val.codePointAt() - 97)
         }
         return bit
     })

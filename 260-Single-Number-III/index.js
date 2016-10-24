@@ -7,11 +7,11 @@ var singleNumber = function(nums) {
     const last1 = axorb ^ ((axorb - 1) & axorb)
     let a = 0
     let b = 0
-    for (let i = 0, len = nums.length; i < len; i++){
-        if ((last1 & nums[i]) === 0) {
-            a ^= nums[i]
+    for (let num of nums){
+        if ((last1 & num) === 0) {
+            a ^= num
         } else {
-            b ^= nums[i]
+            b ^= num
         }
     }
     return [a, b]

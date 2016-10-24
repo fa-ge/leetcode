@@ -5,13 +5,13 @@
 var simplifyPath = function(path) {
     const pathArr = path.split('/')
     const stack = []
-    for (let i = 0, len = pathArr.length; i < len; i++) {
-        if (pathArr[i] === '.' || pathArr[i] === '') {
+    for (let path of pathArr) {
+        if (path === '.' || path === '') {
 
-        } else if(pathArr[i] === '..') {
+        } else if(path === '..') {
             stack.pop()
         } else {
-            stack.push(pathArr[i])
+            stack.push(path)
         }
     }
     return '/' + stack.join('/')
