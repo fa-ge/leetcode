@@ -21,8 +21,7 @@ var levelOrder = function(root) {
     while (queue.length !== 0) {
         tmpQueue = []
         res[n] = []
-        while (queue.length !== 0) {
-            root = queue.shift()
+        while (root = queue.shift()) {
             res[n].push(root.val)
             root.left && tmpQueue.push(root.left)
             root.right && tmpQueue.push(root.right)
