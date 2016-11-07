@@ -11,12 +11,10 @@ var reverseVowels = function(s) {
     let left = 0
     let right = s.length - 1
     let res = s.split('')
-    let tmp
+
     while (left < right) {
         if (isVowels(res[left]) && isVowels(res[right])) {
-            tmp = res[left]
-            res[left] = res[right]
-            res[right] = tmp
+            [res[left], res[right]] = [res[right], res[left]]
             left++
             right--
         } else if (isVowels(res[left]) && !isVowels(res[right])) {

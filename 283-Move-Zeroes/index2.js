@@ -5,13 +5,10 @@
 var moveZeroes = function(nums) {
     let left = 0
     let right = 1
-    const length = nums.length
-    let tmp
-    while (right < length) {
+
+    while (right < nums.length) {
         if (nums[left] == 0 && nums[right] !== 0) {
-            tmp = nums[left]
-            nums[left] = nums[right]
-            nums[right] = tmp
+            [nums[left], nums[right]] = [nums[right], nums[left]]
         } else if(nums[left] == 0 && nums[right] === 0) {
             right++
         } else {

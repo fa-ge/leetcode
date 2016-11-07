@@ -15,18 +15,14 @@
 // };
 var rotate = function(matrix) {
     const length = matrix.length
-    for (let n = 0, tmp; n < length - 1; n++) {
+    for (let n = 0; n < length - 1; n++) {
         for (let m = n; m < length; m++) {
-            tmp = matrix[m][n]
-            matrix[m][n] = matrix[n][m]
-            matrix[n][m] = tmp
+            [matrix[m][n], matrix[n][m]] = [matrix[n][m], matrix[m][n]]
         }
     }
-    for (let m = 0, tmp; m < length; m++) {
+    for (let m = 0; m < length; m++) {
         for (let n = 0; n < length / 2; n++) {
-            tmp = matrix[m][length - n - 1]
-            matrix[m][length - n - 1] = matrix[m][n]
-            matrix[m][n] = tmp
+            [matrix[m][length - n - 1], matrix[m][n]] = [matrix[m][n], matrix[m][length - n - 1]]
         }
     }
 };
