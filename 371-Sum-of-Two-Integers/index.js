@@ -4,9 +4,8 @@
  * @return {number}
  */
 var getSum = function(a, b) {
-    let res = 0
     while (b !== 0) {
-        res = a ^ b
+        let res = a ^ b
         b = (b & a) << 1
         a = res
     }

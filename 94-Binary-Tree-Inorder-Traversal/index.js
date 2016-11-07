@@ -12,7 +12,6 @@
 var inorderTraversal = function(root) {
     const stack = []
     const res = []
-    let tmp
 
     while (root || stack.length !== 0) {
         while (root) {
@@ -20,7 +19,7 @@ var inorderTraversal = function(root) {
             root = root.left
         }
 
-        tmp = stack.pop()
+        let tmp = stack.pop()
         res.push(tmp.val)
         root = tmp.right
     }

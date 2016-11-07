@@ -16,10 +16,9 @@ var zigzagLevelOrder = function(root) {
 
     let queue = [root]
     const res = []
-    let tmpQueue
     let n = 0
     while (queue.length !== 0) {
-        tmpQueue = []
+        let tmpQueue = []
         res[n] = []
         while (queue.length !== 0) {
             root = queue.shift()

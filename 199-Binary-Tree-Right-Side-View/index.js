@@ -17,9 +17,8 @@ var rightSideView = function(root) {
     }
 
     let queue = [root]
-    let tmpQueue
     while (queue.length !== 0) {
-        tmpQueue = []
+        let tmpQueue = []
         for (let i = 0, len = queue.length; i < len; i++) {
             root = queue.shift()
             if (i === 0) {

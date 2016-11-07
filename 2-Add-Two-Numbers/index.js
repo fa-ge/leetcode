@@ -38,13 +38,11 @@ function ListNode(val) {
 var addTwoNumbers = function(l1, l2) {
     let tail
     let head
-    let res
     let carry = 0
-    let sum = 0
     while (l1 || l2 || carry) {
-        sum = carry + (l1 ? l1.val : 0) + (l2 ? l2.val : 0)
+        let sum = carry + (l1 ? l1.val : 0) + (l2 ? l2.val : 0)
         carry = Math.floor(sum / 10)
-        res = new ListNode(sum % 10)
+        let res = new ListNode(sum % 10)
         if (!head) {
             head = res
             tail = res

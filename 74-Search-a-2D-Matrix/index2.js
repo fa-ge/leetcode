@@ -7,9 +7,8 @@
 function bSearchRange(arr, target) {
     let low = 0
     let high = arr.length - 1
-    let mid
     while (low <= high) {
-        mid = Math.floor((low + high) / 2)
+        let mid = Math.floor((low + high) / 2)
         if (target > arr[mid]) {
             low = mid + 1
         } else if (target < arr[mid]) {
@@ -24,9 +23,8 @@ function bSearchRange(arr, target) {
 function bSearch(arr, target) {
     let low = 0
     let high = arr.length - 1
-    let mid
     while (low <= high) {
-        mid = Math.floor((low + high) / 2)
+        let mid = Math.floor((low + high) / 2)
         if (target > arr[mid]) {
             low = mid + 1
         } else if (target < arr[mid]) {

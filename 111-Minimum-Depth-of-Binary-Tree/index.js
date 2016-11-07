@@ -15,9 +15,8 @@ var minDepth = function(root) {
     }
     let queue = [root]
     let n = 0
-    let tmpQueue
     while (queue.length !== 0) {
-        tmpQueue = []
+        let tmpQueue = []
         while (root = queue.pop()) {
             if (root.left || root.right) {
                 root.left && tmpQueue.push(root.left)

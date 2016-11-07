@@ -13,13 +13,12 @@ var postorderTraversal = function(root) {
     const stack = []
     const res = []
 
-    let stackTop
     while (stack.length !== 0 || root) {
         while (root && !root.isVisited) {
             stack.push(root)
             root = root.left
         }
-        stackTop = stack[stack.length - 1]
+        let stackTop = stack[stack.length - 1]
         if (!stackTop) {
             break
         }
