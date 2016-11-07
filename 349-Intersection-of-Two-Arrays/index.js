@@ -7,7 +7,7 @@ var intersection = function(nums1, nums2) {
     const map = {}
     const set = new Set()
 
-    nums1.forEach((value, index) => map[value] = true)
+    nums1.forEach(value => map[value] = true)
     nums2.forEach(value => {
         if (map[value]) {
             set.add(value)
