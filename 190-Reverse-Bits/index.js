@@ -4,10 +4,10 @@
  */
 var reverseBits = function(n) {
     let res = 0
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < 32; i++) {
         res = res << 1 | (n >> i & 1)
     }
-    return (n >> 31 & 1) ? (res * 2 + 1) : res * 2
+    return res >>> 0
 };
 
 console.log(reverseBits(1))
